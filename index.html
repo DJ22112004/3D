@@ -1,0 +1,170 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4D Design Studios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      height: 100vh;
+    }
+    .background-video{
+      position: fixed;
+    }
+
+    header{
+      background-color: #160e0e00;
+      transition: background-color 0.4s;
+    }
+
+    header:hover{
+      background-color: #160e0e50;
+
+    }
+
+    .nav li a:hover {
+      color: rgb(249, 246, 238);
+    }
+
+    .toggle-container {
+      text-align: center;
+      margin-top: 400px;
+    }
+
+    /* .toggle-container:hover{
+      background-color: rgba(245, 245, 220, 0.274);
+    } */
+
+    .dots {
+      font-size: 30px;
+      cursor: pointer;
+      display: inline;
+      margin: 0 10px;
+      color: beige;
+
+    }
+
+    .dots:hover {
+      opacity: 0.6;
+    }
+
+    .text {
+      font-size: 22px;
+      margin-bottom: 20px;
+      font-family: "Noto Serif Display", serif;
+      padding-left: 300px;
+      padding-right: 300px;
+    }
+
+    h1 {
+      font-size: 30px;
+      margin-bottom: 10px;
+      font-family: "Noto Serif Display", serif;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>4D DESIGN STUDIOS</h1>
+    <div id="navigation">
+      <div id="menu" onclick="onClickMenu()">
+        <div id="bar1" class="bar"></div>
+        <div id="bar2" class="bar"></div>
+        <div id="bar3" class="bar"></div>
+      </div>
+      <p class="nav" id="nav" style="font-size: 50px; color: black;">Thank you for stopping by!! We're rewamping our website to better serve you.</p>
+      <!-- <ul class="nav" id="nav">
+        <li><a href="#home">Home</a></li>
+        <li><a href="Gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul> -->
+    </div>
+  </header>
+  <main>
+    <section id="home">
+      <div id="3d-model">
+        <video autoplay muted loop class="background-video">
+          <source src="Splash Video for looping.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="toggle-container">
+        <div class="text" id="toggleText">
+            <h1 id="toggleHeading">Reimagine Architectural Exploration: Dive into Real-Time Experiences
+            </h1>
+            <p id="toggleParagraph">Tired of static walkthroughs?
+              At 4D Design Studios, we're revolutionizing architectural presentations with real-time interactive experiences.
+              </p>
+        </div>
+        <div class="dots" id="toggleButton1" data-index="0">&#11044;</div>
+        <div class="dots" id="toggleButton2" data-index="1">&#11044;</div>
+        <div class="dots" id="toggleButton3" data-index="2">&#11044;</div>
+      </div>
+
+      <div class="content" id="content0" style="display:none;">
+        <h1>Reimagine Architectural Exploration: Dive into Real-Time Experiences
+        </h1>
+        <p>Tired of static walkthroughs?
+          At 4D Design Studios, we're revolutionizing architectural presentations with real-time interactive experiences.
+          </p>
+      </div>
+      <div class="content" id="content1" style="display:none;">
+        <h1>Imagine stepping into a design, exploring details</h1>
+        <p>Experience spaces in a whole new dimension.  Our cutting-edge technology brings your vision to life, allowing you to navigate, interact, and immerse yourself in the architecture like never before.
+        </p>
+      </div>
+      <div class="content" id="content2" style="display:none;">
+        <h1>Move beyond the limitations of traditional methods</h1>
+        <p class="car">Discover the power of real-time interactive visualization.  Let's redefine architectural communication.</p>
+      </div>
+    </section>
+    <!-- <section id="projects">
+      <div class="project-section" id="project1">
+        <video autoplay muted loop class="background-video">
+          <source src="video1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="project-section" id="project2">
+        <video autoplay muted loop class="background-video">
+          <source src="video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="project-section" id="project3">
+        <video autoplay muted loop class="background-video">
+          <source src="video1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </section> -->
+    <!-- <section id="about">
+      <h2>About Us</h2>
+      <p>Information about the company.</p>
+    </section> -->
+    <!-- <section id="services">
+      <h2>Our Services</h2>
+      <p>Details of the services offered.</p>
+    </section> -->
+    <!-- <section id="contact">
+      <h2>Contact Us</h2>
+      <p>How to get in touch.</p>
+    </section> -->
+  </main>
+  <footer>
+    <div class="footer-name">&copy; 2024 4D Dimension. All rights reserved.</div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
