@@ -11,6 +11,160 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+
+      html, body {
+          min-height: 100vh;
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          background: linear-gradient(135deg, #070707 25%, #080536 50%, #383368 75%);
+          background-size: cover;
+      }
+      
+      header{
+        background-color: #160e0e1f;
+        transition: background-color 0.4s;
+      }
+
+      header:hover{
+        background-color: #160e0e50;
+
+      }
+
+      .nav {
+        background-color: rgba(0, 0, 0, 0.719);
+      }
+
+      .nav li a {
+        color: white;
+      }
+
+      .nav li:hover {
+        background-color: rgba(0, 0, 0, 0.815);
+      }
+
+      /* .nav li a:hover {
+        color: rgb(249, 246, 238);
+      } */
+
+      main {
+          flex: 1;
+      }
+      
+      section{
+        height: 100%
+      }
+
+      .filter-buttons {
+          text-align: center;
+          margin-bottom: 10px
+      }
+
+      .filter-btn {
+          background: none;
+          /* border: 1px solid white; */
+          padding: 10px 15px;
+          margin: 5px;
+          cursor: pointer;
+          color: rgb(250, 249, 249);
+          font-size: 16px;
+          border: none;
+      }
+
+
+      .filter-btn.active {
+          /* background: white;
+          color: black; */
+          font-weight: bold;
+      }
+/* 
+      .walkthrough-btn {
+          font-weight: bold;
+          border: 2px solid white;
+          
+      } */
+
+      /* Gallery styles */
+      .gallery {
+        column-count: 4; /* Number of columns, adjust for responsiveness */
+        column-gap: 15px; /* Space between columns */
+        padding: 20px;
+        padding-top: 10px;
+      }
+
+      .gallery img {
+          width: 100%; /* Ensures images fit within the column */
+          margin-bottom: 15px; /* Space between images */
+          break-inside: avoid; /* Prevents images from breaking across columns */
+      }
+
+
+      .gallery-item {
+          position: relative;
+          overflow: hidden;
+          cursor: pointer;
+      }
+
+      .gallery-item img {
+          width: 100%;
+          display: block;
+          transition: transform 0.3s ease, filter 0.3s ease;
+          filter: brightness(70%);
+      }
+
+      /* Hover effect */
+      .gallery-item:hover img {
+          transform: scale(1.1);
+          filter: brightness(100%);
+      }
+
+      .walkthrough-grid {
+          display: none;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 15px;
+          padding: 20px;
+      }
+
+      .walkthrough-item {
+          cursor: pointer;
+      }
+
+      .walkthrough-item video {
+          width: 100%;
+          border-radius: 10px;
+      }
+
+      /* Modal styles */
+      .modal {
+          display: none;
+          position: fixed;
+          z-index: 10;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.8);
+          align-items: center;
+          justify-content: center;
+      }
+
+      .modal-content {
+          max-width: 80%;
+          max-height: 80%;
+          border-radius: 10px;
+      }
+
+      .close {
+          position: absolute;
+          top: 20px;
+          right: 30px;
+          font-size: 30px;
+          color: white;
+          cursor: pointer;
+      }
+      
+    </style>
 </head>
 <body>
     <header>
@@ -31,31 +185,250 @@
         </div>
     </header>
     <main>
-        <section id="projects">
-            <div class="project-section" id="project1">
-              <video autoplay muted loop class="background-video">
-                <source src="video1.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
+      <section>
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">ALL</button>
+          <button class="filter-btn" data-filter="exterior">EXTERIOR</button>
+          <button class="filter-btn" data-filter="interior">INTERIOR</button>
+          <button class="filter-btn" data-filter="product">PRODUCT</button>
+          <button class="filter-btn walkthrough-btn" data-filter="walkthroughs">WALKTHROUGHS</button>
+        </div>
+      
+        <div class="gallery">
+          <div class="gallery-item" data-category="exterior">
+              <img src="images/image1.jpeg" alt="Project 1">
+          </div>
+          <div class="gallery-item" data-category="exterior">
+              <img src="images/image2.jpeg" alt="Project 2">
+          </div>
+          <div class="gallery-item" data-category="exterior">
+              <img src="images/image3.jpeg" alt="Project 3">
+          </div>
+          <div class="gallery-item" data-category="exterior">
+              <img src="images/image4.jpeg" alt="Walkthrough 1">
+          </div>
+          <div class="gallery-item" data-category="exterior">
+              <img src="images/image5.jpeg" alt="Project 5">
+          </div>
+          <div class="gallery-item" data-category="interior">
+              <img src="images/image6.png" alt="Project 6">
+          </div>
+          <div class="gallery-item" data-category="exterior">
+              <img src="images/image7.png" alt="Walkthrough 2">
+          </div>
+          <div class="gallery-item" data-category="interior">
+              <img src="images/image8.png" alt="Project 8">
+          </div>
+          <div class="gallery-item" data-category="interior">
+              <img src="images/image9.png" alt="Project 9">
+          </div>
+          <div class="gallery-item" data-category="interior">
+              <img src="images/image10.png" alt="Project 10">
+          </div>
+          <div class="gallery-item" data-category="interior">
+              <img src="images/image11.png" alt="Walkthrough 3">
+          </div>
+          <div class="gallery-item" data-category="interior">
+              <img src="images/image12.png" alt="Project 12">
+          </div>
+          <div class="gallery-item" data-category="interior">
+              <img src="images/image13.png" alt="Project 13">
+          </div>
+          <div class="gallery-item" data-category="product">
+              <img src="images/image14.jpg" alt="Project 14">
+          </div>
+          <div class="gallery-item" data-category="exterior">
+              <img src="images/image15.jpeg" alt="Walkthrough 4">
+          </div>
+          <div class="gallery-item" data-category="product">
+              <img src="images/image16.jpg" alt="Project 16">
+          </div>
+          <div class="gallery-item" data-category="exterior">
+              <img src="images/image17.jpeg" alt="Project 17">
+          </div>
+          <div class="gallery-item" data-category="exterior">
+              <img src="images/image18.jpeg" alt="Project 18">
+          </div>
+          <div class="gallery-item" data-category="exterior">
+              <img src="images/image19.jpeg" alt="Walkthrough 5">
+          </div>
+          <div class="gallery-item" data-category="interior">
+              <img src="images/image20.jpg" alt="Project 20">
+          </div>
+          <div class="gallery-item" data-category="interior">
+              <img src="images/image21.jpg" alt="Project 21">
+          </div>
+          <div class="gallery-item" data-category="product">
+              <img src="images/image22.jpg" alt="Project 22">
+          </div>
+          <div class="gallery-item" data-category="product">
+              <img src="images/image23.jpg" alt="Walkthrough 6">
+          </div>
+          <div class="gallery-item" data-category="exterior">
+              <img src="images/image24.jpeg" alt="Project 24">
+          </div>
+          <div class="gallery-item" data-category="exterior">
+              <img src="images/image25.jpeg" alt="Project 25">
+          </div>
+          <div class="gallery-item" data-category="exterior">
+              <img src="images/image26.jpeg" alt="Project 26">
+          </div>
+          <div class="gallery-item" data-category="exterior">
+              <img src="images/image27.jpeg" alt="Project 27">
+          </div>
+          <div class="gallery-item" data-category="exterior">
+              <img src="images/image28.jpeg" alt="Walkthrough 7">
+          </div>
+          <div class="gallery-item" data-category="exterior">
+              <img src="images/image29.jpeg" alt="Project 29">
+          </div>
+          <div class="gallery-item" data-category="exterior">
+              <img src="images/image30.png" alt="Project 27">
+          </div>
+          <div class="gallery-item" data-category="exterior">
+              <img src="images/image31.png" alt="Walkthrough 7">
+          </div>
+          <div class="gallery-item" data-category="exterior">
+              <img src="images/image32.png" alt="Project 29">
+          </div>
+        </div>
+
+        <div class="walkthrough-grid">
+            <div class="walkthrough-item">
+              <video src="videos/HUBTOWN EXTERIOR.mp4" poster="thumbnails/hub.jpg"></video>
             </div>
-            <div class="project-section" id="project2">
-              <video autoplay muted loop class="background-video">
-                <source src="video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
+            <div class="walkthrough-item">
+              <video src="videos/OFFICE INTERIOR INTERACTIVE WALKTHROUGH.mp4" poster="thumbnails/office interactive.jpg"></video>
             </div>
-            <div class="project-section" id="project3">
-              <video autoplay muted loop class="background-video">
-                <source src="video1.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
+            <div class="walkthrough-item">
+              <video src="videos/RealTime Villa Tour.mp4"></video>
             </div>
-        </section>
+            <div class="walkthrough-item">
+              <video src="videos/RESTAURANT iNTERIOR.mp4" poster="thumbnails/rest int.jpg"></video>
+            </div>
+            <div class="walkthrough-item">
+              <video src="videos/ShowReel 2023-24.mp4" poster="thumbnails/show reel.jpg"></video>
+            </div>
+            <div class="walkthrough-item">
+              <video src="videos/The Serai (Dunkun Road)-(1080p).mp4" poster="thumbnails/serai.jpg"></video>
+            </div>
+            <div class="walkthrough-item">
+              <video src="videos/HiRise_Commercial.mp4"></video>
+            </div>
+            <div class="walkthrough-item">
+              <video src="videos/CAFE02.mp4"></video>
+            </div>
+            <div class="walkthrough-item">
+              <video src="videos/Apartment Interior Walkthrough.mp4" poster="thumbnails/apartment interior.jpg"></video>
+            </div>
+            <div class="walkthrough-item">
+              <video src="videos/Chair demo.mp4"></video>
+            </div>
+            <div class="walkthrough-item">
+              <video src="videos/DMRC - Experiencew the Thrill of Driving a Metro.mp4" poster="thumbnails/dmrc.jpg"></video>
+            </div>
+            <div class="walkthrough-item">
+              <video src="videos/E Deck Presentation, Mumbai-(1080p).mp4" poster="thumbnails/image.png"></video>
+            </div>
+            <div class="walkthrough-item">
+              <video src="videos/Mortury Revised Walkthrough.mp4" poster="thumbnails/mort.jpg"></video>
+            </div>
+            <div class="walkthrough-item">
+              <video src="videos/VR work Sample.mp4" poster="thumbnails/cinematic.jpg"></video>
+            </div>
+
+        </div>
+      
+        
+  
+        <!-- Image Modal -->
+        <div class="modal" id="imageModal">
+            <img class="modal-content" id="modal-img">
+        </div>
+
+        <!-- Video Modal -->
+        <div class="modal" id="videoModal">
+            <video class="modal-content" id="modal-video" controls></video>
+        </div>
+
+      </section>
+
     </main>
     <footer>
         <div class="footer-name">&copy; 2024 4D Dimension. All rights reserved.</div>
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const filterButtons = document.querySelectorAll(".filter-btn");
+            const galleryItems = document.querySelectorAll(".gallery-item");
+            const gallery = document.querySelector(".gallery");
+            const walkthroughGrid = document.querySelector(".walkthrough-grid");
+    
+            filterButtons.forEach(button => {
+                button.addEventListener("click", function() {
+                    const filter = this.getAttribute("data-filter");
+    
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove("active"));
+                    this.classList.add("active");
+    
+                    // Show/Hide images based on the selected filter
+                    galleryItems.forEach(item => {
+                        if (filter === "all") {
+                            item.style.display = (item.getAttribute("data-category") === "walkthroughs") ? "none" : "block";
+                        } else if (filter === "walkthroughs") {
+                            item.style.display = (item.getAttribute("data-category") === "walkthroughs") ? "block" : "none";
+                        } else {
+                            item.style.display = (item.getAttribute("data-category") === filter) ? "block" : "none";
+                        }
+                    });
+    
+                    // Added lines to toggle gallery and walkthrough grid visibility
+                    gallery.style.display = (filter === "walkthroughs") ? "none" : "block";
+                    walkthroughGrid.style.display = (filter === "walkthroughs") ? "grid" : "none";
+                });
+            });
+        });
+    
+        // Image Modal
+        const imageModal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modal-img");
+    
+        document.querySelectorAll(".gallery-item img").forEach(img => {
+            img.addEventListener("click", function() {
+                imageModal.style.display = "flex";
+                modalImg.src = this.src;
+            });
+        });
+    
+        // Close image modal when clicking outside
+        imageModal.addEventListener("click", function(event) {
+            if (event.target !== modalImg) {
+                imageModal.style.display = "none";
+            }
+        });
+    
+        // Video Modal
+        const videoModal = document.getElementById("videoModal");
+        const modalVideo = document.getElementById("modal-video");
+    
+        document.querySelectorAll(".walkthrough-item video").forEach(video => {
+            video.addEventListener("click", function() {
+                videoModal.style.display = "flex";
+                modalVideo.src = this.src;
+            });
+        });
+    
+        // Close video modal when clicking outside
+        videoModal.addEventListener("click", function(event) {
+            if (event.target !== modalVideo) {
+                videoModal.style.display = "none";
+                modalVideo.pause();
+            }
+        });
+    </script>
+    
 </body>
 </html>

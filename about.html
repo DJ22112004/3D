@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>About us</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,21 +13,179 @@
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
+        html, body {
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            /* background-color: #504c4c; */
+            background: linear-gradient(135deg, #070707 25%, #080536 50%, #383368 75%);
+            background-size: cover;
+        }
+      
+        header{
+            background-color: #160e0e1f;
+            transition: background-color 0.4s;
+        }
+
+        header:hover{
+            background-color: #160e0e50;
+
+        }
+
+        .nav {
+            background-color: rgba(0, 0, 0, 0.719);
+        }
+
+        .nav li a {
+            color: white;
+        }
+
+        .nav li:hover {
+            background-color: rgba(0, 0, 0, 0.815);
+        }
+
         #about {
             position: relative;
-            height: 100vh;
+            height: 100%;
             overflow: hidden;
-            color: #0e0909;
             text-align: center;
         }
 
-        .nav{
-            background-color: rgb(44, 42, 40);
+        #about {
+            display: inline-block;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 1100px;
+            color: azure;
         }
 
-        .nav li a{
-            color: #fff;
+        h2 {
+            font-size: 40px;
+            font-weight: bold;
         }
+
+        p {
+            font-size: 22px;
+            text-align: left;
+        }
+
+        ul {
+            list-style-type: disc; /* Other options: circle, square, none */
+            padding-left: 20px;
+            font-size: 22px;
+            line-height: 1.5;
+            justify-content: left;
+            text-align: left;
+        }
+
+        /* === Tablet & Mobile (max-width: 768px) === */
+        @media (max-width: 768px) {
+        body {
+            font-size: 16px;
+            line-height: 1.5;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        /* === Header === */
+        header {
+            display: flex;
+            justify-content: space-between; /* Keeps h1 on the left and menu on the right */
+            align-items: center;
+            padding: 10px 15px;
+        }
+
+        header h1 {
+            font-size: 36px;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        /* === Hamburger Menu Adjustments === */
+        #menu {
+            position: relative;
+            right: 0; /* Ensures it stays on the right */
+            width: 35px;
+            height: 30px;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        /* === Navigation Menu === */
+        .nav {
+            width: 100%;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 10px 0;
+        }
+
+        .nav li {
+            padding: 12px 0;
+        }
+
+        .nav li a {
+            font-size: 20px;
+        }
+
+        /* === About Section === */
+        #about {
+            width: 90%;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 28px;
+        }
+
+        p {
+            font-size: 18px;
+            text-align: left;
+        }
+
+        ul {
+            font-size: 18px;
+            padding-left: 15px;
+        }
+
+        /* === Footer === */
+        footer {
+            font-size: 14px;
+            padding: 10px;
+        }
+        }
+
+        /* === Mobile-Specific Adjustments (max-width: 480px) === */
+        @media (max-width: 480px) {
+        header h1 {
+            font-size: 28px;
+        }
+
+        .nav li a {
+            font-size: 18px;
+        }
+
+        #about h2 {
+            font-size: 24px;
+        }
+
+        p, ul {
+            font-size: 16px;
+        }
+
+        footer {
+            font-size: 12px;
+            padding: 8px;
+        }
+        }
+
+
+
     </style>
 </head>
 <body>
@@ -49,8 +208,51 @@
     </header>
     <main>
         <section id="about">
-            <h2>About Us</h2>
-            <p>Information about the company.</p>
+            <h2>4D Design Studios: Your vision, Virtually
+                realised</h2>
+            <p>Since its inception in 2008, 4D Design Studios, under the visionary leadership of
+                Mr. Rajeev Gaur, has been synonymous with excellence in spatial design and
+                digital visualization. Built on a foundation of exceptional talent, we specialize in
+                translating client aspirations into optimal, immersive 3D experiences.</p>
+            <p>We offer a complete spectrum of creative services, from meticulous remodeling
+                to the creation of captivating 3D architectural designs. Our multidisciplinary
+                team4comprising 3D visualizers/visualization artists, art directors, modelers,
+                texturing artists, UE developers, software developers, and VFX professionals4is
+                driven by a shared commitment to perfection and innovation.</p>
+            <p>At 4D Design Studios, client satisfaction is paramount. We prioritize delivering
+                an unmatched level of service, consistently exceeding expectations, and
+                fostering lasting partnerships. This dedication to our clients is the driving force
+                behind our continued growth and success.</p>
+            <h2>Lets talk about
+                future...</h2>
+            <p>Ready to revolutionize your project's market
+                entry? 4D Design Studios crafts immersive 3D
+                experiences that leave a lasting impression. We
+                specialize in transforming your ideas into
+                powerful visual assets, including compelling
+                imagery, dynamic animations, and interactive
+                VR presentations. From detailed space
+                diagrams to visionary store concepts, we
+                deliver solutions tailored to your specific
+                needs.</p>
+            <p>We translate your vision into breathtaking 3D
+                reality. Utilizing your design concepts,
+                illustrations, and reference materials, our
+                expert team produces photorealistic visuals
+                that showcase your project's full potential.
+                Our collaborative approach: 
+                </p>
+            <ul>
+                <li>In-depth understanding of your project's objectives.</li>
+                <li>Creation of engaging 360° rotatable 3D visualizations.</li>
+                <li>Dedicated design revisions until your complete satisfaction.</li>
+                <li>Seamless delivery of digital presentation files.</li>
+            </ul>
+                
+
+            
+            
+
         </section>
     </main>
     <footer>

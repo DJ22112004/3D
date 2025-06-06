@@ -12,13 +12,187 @@
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        .nav{
-            background-color: rgb(44, 42, 40);
+        html, body {
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, #070707 25%, #080536 50%, #383368 75%);
+            background-size: cover;
+        }
+      
+        header{
+            background-color: #160e0e1f;
+            transition: background-color 0.4s;
         }
 
-        .nav li a{
-            color: #fff;
+        header:hover{
+            background-color: #160e0e50;
+
         }
+
+        .nav {
+            background-color: rgba(0, 0, 0, 0.719);
+        }
+
+        .nav li a {
+            color: white;
+        }
+
+        .nav li:hover {
+            background-color: rgba(0, 0, 0, 0.815);
+        }
+
+        #services {
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center; Centers content vertically */
+            align-items: center; /* Centers content horizontally */
+            text-align: center; /* Ensures text alignment is centered */
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+            width: 100%; /* Make it responsive */
+            color: azure;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 22px;
+            max-width: 1100px; /* Prevents text from stretching too wide */
+        }
+
+        ul {
+            list-style-type: disc; /* Other options: circle, square, none */
+            padding-left: 20px;
+            font-size: 22px;
+            /* line-height: 1.5; */
+            justify-content: left;
+            text-align: left;
+        }
+
+        /* ======= Mobile Devices (Max Width 480px) ======= */
+
+        @media (max-width: 480px) {
+        /* Adjust header layout */
+        header {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+        }
+
+        header h1 {
+            font-size: 28px;
+            text-align: left;
+        }
+
+        /* Hamburger menu alignment */
+        #menu {
+            width: 30px;
+            height: 25px;
+            cursor: pointer;
+            position: relative;
+            right: 0;
+        }
+
+        /* Navigation adjustments */
+        .nav {
+            width: 100%;
+            text-align: center;
+        }
+
+        .nav li {
+            padding: 12px 0;
+        }
+
+        .nav li a {
+            font-size: 18px;
+        }
+
+        /* Services section adjustments */
+        #services {
+            padding: 20px;
+            height: auto;
+        }
+
+        #services h2 {
+            font-size: 28px;
+            text-align: center;
+        }
+
+        #services p {
+            font-size: 18px;
+            max-width: 90%;
+            text-align: center;
+        }
+
+        #services ul {
+            padding-left: 15px;
+            font-size: 18px;
+        }
+
+        /* Footer adjustments */
+        footer {
+            padding: 12px 0;
+            font-size: 14px;
+        }
+        }
+
+        /* ======= Tablet Devices (Max Width 768px) ======= */
+        @media (max-width: 768px) {
+        /* Header styling */
+        header {
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 15px 20px;
+        }
+
+        header h1 {
+            font-size: 32px;
+        }
+
+        /* Hamburger menu positioning */
+        #menu {
+            width: 35px;
+            height: 30px;
+        }
+
+        .nav li a {
+            font-size: 20px;
+        }
+
+        /* Services section */
+        #services {
+            padding: 30px;
+            height: auto;
+        }
+
+        #services h2 {
+            font-size: 32px;
+        }
+
+        #services p {
+            font-size: 20px;
+            max-width: 95%;
+        }
+
+        #services ul {
+            font-size: 20px;
+        }
+
+        /* Footer adjustments */
+        footer {
+            padding: 15px 0;
+        }
+        }
+
+
     </style>
 </head>
 <body>
@@ -40,8 +214,30 @@
           </div>
     </header>
     <section id="services">
-        <h2>Our Services</h2>
-        <p>Details of the services offered.</p>
+        <h2>Services: Comprehensive Architectural
+            Solutions</h2>
+        <p>Transform Your Vision into Reality with 4D Design Studios. We specialize in crafting photorealistic
+            3D interior and exterior renderings that bring your designs to life with unparalleled detail.</p>
+        <p>As a leading force in 3D visualization, we cater to both residential and commercial projects,
+            partnering with architects and real estate firms to realize their most ambitious dreams. Our
+            commitment to long-term client relationships is built on a foundation of exceptional service and
+            unwavering dedication.</p>
+        <p>Leveraging cutting-edge software, our experienced team meticulously crafts every detail,
+            ensuring your renderings are not just visuals, but immersive experiences. We masterfully
+            manipulate textures and shadows to create images that are indistinguishable from photographs.
+            </p>
+        <p>Our Comprehensive Services:</p>
+        <ul>
+            <li>Architectural Visualization: Captivating renderings that showcase your designs.
+            </li>
+            <li>Interior Visualization: Bringing interior spaces to life with stunning realism.</li>
+            <li>Design Development: Turning concepts into tangible visual representations.</li>
+            <li>Exterior Elevation Design: Creating impactful exterior views.</li>
+            <li>3D Modeling & Rendering: Delivering high-quality, detailed renderings.</li>
+            <li>Virtual Reality (VR): Immersive experiences that transport clients into their projects.</li>
+            <li>Furniture Planning: Optimizing space and aesthetics with detailed furniture layouts.</li>
+        </ul>
+
     </section>
     <footer>
         <div class="footer-name">&copy; 2024 4D Dimension. All rights reserved.</div>

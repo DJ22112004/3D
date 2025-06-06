@@ -12,24 +12,33 @@
   <link rel="stylesheet" href="style.css">
   <style>
     body {
-      height: 100vh;
+      height: 100vh; /* Ensure full height */
+      overflow-x: hidden; /* Prevent horizontal scrolling */
     }
     .background-video{
       position: fixed;
     }
 
     header{
-      background-color: #160e0e00;
+      background-color: #160e0e2a;
       transition: background-color 0.4s;
     }
 
     header:hover{
-      background-color: #160e0e50;
+      background-color: #160e0e6c;
 
     }
 
-    .nav li a:hover {
-      color: rgb(249, 246, 238);
+    .nav {
+      background-color: rgba(0, 0, 0, 0.719);
+    }
+
+    .nav li a {
+      color: white;
+    }
+
+    .nav li:hover {
+      background-color: rgba(0, 0, 0, 0.815);
     }
 
     .toggle-container {
@@ -67,6 +76,173 @@
       margin-bottom: 10px;
       font-family: "Noto Serif Display", serif;
     }
+
+    /* --- 📱 Mobile (max-width: 480px) --- */
+    @media screen and (max-width: 480px) {
+    /* Header */
+      header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+      }
+
+      /* Ensure H1 is aligned to the left */
+      header h1 {
+        font-size: 28px;
+        text-align: left;
+      }
+      /* Hamburger menu alignment */
+      #menu {
+        width: 30px;
+        height: 25px;
+        cursor: pointer;
+        position: relative;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      /* Fix the spacing between bars */
+      .bar {
+        height: 4px;
+        width: 100%;
+        background-color: white;
+        border-radius: 5px;
+        transition: 0.3s ease;
+      }
+
+      .icon #bar1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+      }
+
+      .icon #bar2 {
+        opacity: 0;
+      }
+
+      .icon #bar3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+      }
+
+      /* Navigation adjustments */
+      .nav {
+        display: none;
+        flex-direction: column;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        width: 100%;
+        top: 60px;
+        left: 0;
+        padding: 10px 0;
+      }
+
+      .nav li {
+        padding: 12px 0;
+      }
+
+      .nav li a {
+        font-size: 18px;
+        display: block;
+        color: white;
+      }
+
+
+      /* Text Content */
+      .text {
+          font-size: 16px;
+          padding: 15px;
+          text-align: center;
+      }
+
+      /* Toggle Dots */
+      .dots {
+          font-size: 20px;
+      }
+
+      /* Footer */
+      footer {
+          padding: 10px;
+          text-align: center;
+          font-size: 12px;
+          background-color: rgba(0, 0, 0, 0.9);
+      }
+    }
+
+/* --- 📲 Tablet (max-width: 768px) --- */
+    @media screen and (max-width: 768px) {
+
+      /* Background Video */
+      .background-video {
+          height: 100%;
+          /* width: 100%; */
+      }
+
+      /* Header */
+      header {
+          font-size: 18px;
+          padding: 10px;
+          text-align: center;
+      }
+
+      /* Navigation */
+      .nav {
+          display: none;
+          flex-direction: column;
+          text-align: center;
+          background-color: rgba(0, 0, 0, 0.9);
+          position: absolute;
+          width: 100%;
+          top: 60px;
+          left: 0;
+          padding: 10px 0;
+      }
+
+      .nav li {
+          padding: 10px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .nav li a {
+          font-size: 18px;
+          display: block;
+      }
+
+      /* Hamburger Menu */
+      #menu {
+          display: block;
+          cursor: pointer;
+      }
+
+      /* Text Content */
+      .text {
+          font-size: 18px;
+          padding: 20px;
+          text-align: center;
+      }
+
+      /* Toggle Container */
+      .toggle-container {
+          margin-top: 200px;
+      }
+
+      /* Toggle Dots */
+      .dots {
+          font-size: 24px;
+      }
+
+      /* Footer */
+      footer {
+          padding: 15px;
+          text-align: center;
+          font-size: 14px;
+          background-color: rgba(0, 0, 0, 0.9);
+      }
+    }
+
+
+    
   </style>
 </head>
 <body>
@@ -78,14 +254,14 @@
         <div id="bar2" class="bar"></div>
         <div id="bar3" class="bar"></div>
       </div>
-      <p class="nav" id="nav" style="font-size: 50px; color: black;">Thank you for stopping by!! We're rewamping our website to better serve you.</p>
-      <!-- <ul class="nav" id="nav">
+      <!-- <p class="nav" id="nav" style="font-size: 50px; color: black;">Thank you for stopping by!! We're rewamping our website to better serve you.</p> -->
+      <ul class="nav" id="nav">
         <li><a href="#home">Home</a></li>
         <li><a href="Gallery.html">Gallery</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="contact.html">Contact</a></li>
-      </ul> -->
+      </ul>
     </div>
   </header>
   <main>
@@ -163,6 +339,23 @@
     <div class="footer-name">&copy; 2024 4D Dimension. All rights reserved.</div>
   </footer>
   <script src="script.js"></script>
+  <script>
+    function onClickMenu() {
+      let menu = document.getElementById("menu");
+      let nav = document.getElementById("nav");
+
+      // Toggle menu animation
+      menu.classList.toggle("icon");
+
+      // Toggle navigation visibility
+      if (nav.style.display === "flex") {
+        nav.style.display = "none";
+      } else {
+        nav.style.display = "flex";
+      }
+    }
+
+  </script>
 </body>
 </html>
 
